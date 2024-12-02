@@ -34,19 +34,20 @@ export default function App() {
 }
 
 function ProfilePage() {
-const {username,firstName,lastName,emailAddress} = useContext(UseUserDataContext)
 
   return (
     <form className='p-8'>
       <div className='space-y-12'>
-        <ProfileInfo username={username} />
-        <PersonalInfo firstName={firstName} lastName={lastName} emailAddress={emailAddress} />
+        <ProfileInfo />
+        <PersonalInfo />
       </div>
     </form>
   )
 }
 
-function ProfileInfo({username}) {
+function ProfileInfo() {
+const {username} = useContext(UseUserDataContext)
+
   return (
     <div className='border-b border-gray-900/10 pb-12'>
       <h2 className='text-base font-semibold leading-7 text-gray-900'>
@@ -87,7 +88,8 @@ function ProfileInfo({username}) {
   )
 }
 
-function PersonalInfo({ firstName, lastName, emailAddress }) {
+function PersonalInfo() {
+  const { firstName, lastName, emailAddress } =useContext(UseUserDataContext)
   return (
     <div className='border-b border-gray-900/10 pb-12'>
       <h2 className='text-base font-semibold leading-7 text-gray-900'>
